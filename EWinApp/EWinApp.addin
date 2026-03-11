@@ -1,0 +1,15 @@
+﻿<RevitAddIns>
+    <AddIn Type="Application">
+        <Name>EWinApp</Name>
+        <Assembly>EWinApp\EWinApp.dll</Assembly>
+        <AddInId>64A25403-2BC8-4980-92A5-68270A7A326A</AddInId>
+        <FullClassName>EWinApp.Application</FullClassName>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+    <ManifestSettings>
+        <UseRevitContext>False</UseRevitContext>
+        <ContextName>EWinApp</ContextName>
+    </ManifestSettings>
+</RevitAddIns>
