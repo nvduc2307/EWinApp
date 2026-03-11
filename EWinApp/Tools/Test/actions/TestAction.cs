@@ -1,15 +1,17 @@
 ﻿using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using EWinApp.Utils;
-using EWinApp.Utils.SelectFilters;
 using EWinApp.Utils.Warnings;
 
 namespace EWinApp.Tools.Test.actions
 {
     public partial class TestAction
     {
-        private const double _coverMm = 70;
+        private const string _diameterName = "D25";
         private const string _fName = "FMRK";
+        private const double _diameterMm = 25;
+        private const double _coverMm = 70;
+        private const int _angleRotate = 3;
         private Document _document;
         private UIDocument _uiDocument;
         private double _r1;
@@ -43,7 +45,7 @@ namespace EWinApp.Tools.Test.actions
                 .WhereElementIsElementType()
                 .OfClass(typeof(RebarBarType))
                 .Cast<RebarBarType>()
-                .OrderBy(x=>x.get_Parameter(BuiltInParameter.REBAR_BAR_DIAMETER).AsDouble())
+                .OrderBy(x => x.get_Parameter(BuiltInParameter.REBAR_BAR_DIAMETER).AsDouble())
                 .ToList();
         }
         public void Execute()
@@ -54,8 +56,11 @@ namespace EWinApp.Tools.Test.actions
             {
                 ts.SkipAllWarnings();
                 ts.Start();
-                InstallR1a();
-                InstallR1b();
+                //InstallR1a();
+                //InstallR1b();
+                InstallR10();
+                InstallR15();
+                InstallR16();
                 ts.Commit();
             }
 
