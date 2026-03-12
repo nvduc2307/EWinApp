@@ -56,8 +56,16 @@ namespace EWinApp.Tools.Test.actions
             {
                 ts.SkipAllWarnings();
                 ts.Start();
-                //InstallR1a();
-                //InstallR1b();
+                InstallR1a();
+                InstallR2a();
+                InstallR3a();
+                InstallR4a();
+                InstallR4b();
+                InstallR5();
+                InstallR7a();
+                InstallR7b();
+                InstallR7c();
+                InstallR9();
                 InstallR10();
                 InstallR11();
                 InstallR12();

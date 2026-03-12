@@ -6,7 +6,7 @@ namespace EWinApp.Tools.Test.actions
 {
     public partial class TestAction
     {
-        public void InstallR1a()
+        public void InstallR2a()
         {
             var rebarStyle = RebarStyle.Standard;
             RebarBarType rebarType = _rebarBarTypes.FirstOrDefault(x => x.Name == _diameterName);
@@ -19,10 +19,10 @@ namespace EWinApp.Tools.Test.actions
             var center = _origin
                 - _vtz * (_h2 + _h3 + _h4 + _h5 - 100.0.FromMillimeters());
             var p1 = center
-                + _vtz * coverMm.FromMillimeters()
-                + _vtx * (_r1 - coverMm.FromMillimeters());
+                + _vtz * (coverMm.FromMillimeters() + 55.0.FromMillimeters())
+                + _vtx * (_r1 - 3050.0.FromMillimeters());
             var p2 = center
-                + _vtz * coverMm.FromMillimeters()
+                + _vtz * (coverMm.FromMillimeters() + 55.0.FromMillimeters())
                 + _vtx * 1450.0.FromMillimeters();
             var ps = new List<XYZ>() { p1, p2 };
             var newCurves = ps.CreateCurves();
