@@ -9,7 +9,7 @@ namespace EWinApp.Tools.Test.actions
         private void RotateCopy(Rebar rb)
         {
             var axis = Line.CreateUnbound(_origin, _vtz);
-            for (int i = 1; i < 360; i++)
+            for (int i = 1; i < 120; i++)
             {
                 var ids = ElementTransformUtils.CopyElement(_document, rb.Id, _vtx * 0);
                 if (ids == null) continue;
