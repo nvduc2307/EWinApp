@@ -6,7 +6,7 @@ namespace EWinApp.Tools.Test.actions
 {
     public partial class TestAction
     {
-        public void InstallR1a()
+        public void InstallR5()
         {
             var rebarStyle = RebarStyle.Standard;
             RebarBarType rebarType = _rebarBarTypes.FirstOrDefault(x => x.Name == _diameterName);
@@ -15,16 +15,20 @@ namespace EWinApp.Tools.Test.actions
             var vtNorm = _vty;
             var startHookOrien = RebarHookOrientation.Right;
             var EndHookOrien = RebarHookOrientation.Right;
-            var coverMm = _coverMm + _diameterMm / 2;
             var center = _origin
                 - _vtz * (_h2 + _h3 + _h4 + _h5 - 100.0.FromMillimeters());
             var p1 = center
-                + _vtz * coverMm.FromMillimeters()
-                + _vtx * (_r1 - coverMm.FromMillimeters());
+                + _vtx * (_r1 - 550.0.FromMillimeters());
             var p2 = center
-                + _vtz * coverMm.FromMillimeters()
-                + _vtx * 1450.0.FromMillimeters();
-            var ps = new List<XYZ>() { p1, p2 };
+                + _vtx * _r1;
+            var p3 = p2
+                + _vtz * _h2;
+            var p4 = p3 + _vtz * _h3
+                - _vtx * (_r1 - _r2);
+            var vt = (p4 - p3).Normalize();
+            var p5 = p3 + vt * 550.0.FromMillimeters();
+            var ps = new List<XYZ>() { p1, p2, p3, p5 };
+            var coverMm = _coverMm + _diameterMm / 2;
             var newCurves = ps.CreateCurves();
             newCurves = newCurves.OffSet(_vty, coverMm.FromMillimeters());
             if (rebarType == null) return;
