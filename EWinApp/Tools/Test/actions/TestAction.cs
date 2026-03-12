@@ -59,8 +59,17 @@ namespace EWinApp.Tools.Test.actions
                 //InstallR1a();
                 //InstallR1b();
                 InstallR10();
+                InstallR11();
+                InstallR12();
+                InstallR13();
+                InstallR14();
                 InstallR15();
                 InstallR16();
+                InstallR17a();
+                InstallR17b();
+                InstallR17c();
+                InstallR17d();
+                InstallR18a();
                 ts.Commit();
             }
 

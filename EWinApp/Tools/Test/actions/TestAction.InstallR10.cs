@@ -52,8 +52,8 @@ namespace EWinApp.Tools.Test.actions
             ElementTransformUtils.RotateElement(_document, ids.First(), Line.CreateUnbound(centerSub, _vtz), Math.PI);
             var rbC = _document.GetElement(ids.First()) as Rebar;
             rbC.SetSolidRebar3DView(_document.ActiveView);
-            //RotateCopy(rb);
-            //RotateCopy(rbC);
+            RotateCopy(rb);
+            RotateCopy(rbC);
         }
     }
 }

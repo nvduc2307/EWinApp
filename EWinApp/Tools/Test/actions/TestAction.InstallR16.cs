@@ -8,6 +8,7 @@ namespace EWinApp.Tools.Test.actions
     {
         public void InstallR16()
         {
+            var extent = 2351.0;
             var rebarStyle = RebarStyle.Standard;
             RebarBarType rebarType = _rebarBarTypes.FirstOrDefault(x => x.Name == _diameterName);
             RebarHookType startHookType = null;
@@ -19,9 +20,9 @@ namespace EWinApp.Tools.Test.actions
                 + _vtz * 100.0.FromMillimeters()
                 - _vtz * (_h1 + _h2 + _h3 + _h4 + _h5);
             var p1 = center + _vtx * _r4;
-            var p2 = p1 - _vtx * 2300.0.FromMillimeters();
+            var p2 = p1 - _vtx * extent.FromMillimeters();
             var p3 = p2
-                + _vtz * 2300.0.FromMillimeters();
+                + _vtz * extent.FromMillimeters();
             var ps = new List<XYZ>() { p1, p2, p3 };
             var coverMm = _coverMm + _diameterMm / 2;
             var newCurves = ps.CreateCurves();
@@ -43,7 +44,7 @@ namespace EWinApp.Tools.Test.actions
                 true);
             if (rb == null) return;
             rb.SetSolidRebar3DView(_document.ActiveView);
-            //RotateCopy(rb);
+            RotateCopy(rb);
         }
     }
 }
