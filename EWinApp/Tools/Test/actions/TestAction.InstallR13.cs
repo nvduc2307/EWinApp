@@ -16,17 +16,15 @@ namespace EWinApp.Tools.Test.actions
             var startHookOrien = RebarHookOrientation.Right;
             var EndHookOrien = RebarHookOrientation.Right;
             var center = _origin
-                + _vtz * 100.0.FromMillimeters();
+                - _vtz * 160.0.FromMillimeters();
             var p1 = center
                 + _vtx * _r2
-                - _vtz * (50.0 + 2950).FromMillimeters();
-            var p2 = p1 + _vtz * 2950.0.FromMillimeters();
-            var p3 = center
-                + _vtx * (_r3 + _r5);
-            var p4 = p3 - _vtx * 100.0.FromMillimeters()
-                - _vtz * 120.0.FromMillimeters();
-            var p5 = p4 + (p4 - p3).Normalize() * 500.0.FromMillimeters();
-            var ps = new List<XYZ>() { p1, p2, p3, p5 };
+                - _vtz * 2080.0.FromMillimeters();
+            var p2 = p1 + _vtz * 2080.0.FromMillimeters();
+            var p3 = p2
+                - _vtx * 2650.0.FromMillimeters();
+            var p4 = p3 - _vtz * 1050.0.FromMillimeters();
+            var ps = new List<XYZ>() { p1, p2, p3, p4 };
             var coverMm = _coverMm + _diameterMm / 2;
             var newCurves = ps.CreateCurves();
             newCurves = newCurves.OffSet(_vty, coverMm.FromMillimeters());
@@ -47,7 +45,7 @@ namespace EWinApp.Tools.Test.actions
                 true);
             if (rb == null) return;
             rb.SetSolidRebar3DView(_document.ActiveView);
-            //RotateCopy(rb);
+            RotateCopy(rb);
         }
     }
 }
